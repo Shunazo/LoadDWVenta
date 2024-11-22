@@ -1,4 +1,6 @@
-﻿namespace LoadDWVenta.Data.Entities.Northwind
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LoadDWVenta.Data.Entities.Northwind
 {
     public class Product
     {
@@ -12,6 +14,7 @@
 
         public string? QuantityPerUnit { get; set; }
 
+        [Column(TypeName = "decimal(18,4)")]
         public decimal? UnitPrice { get; set; }
 
         public short? UnitsInStock { get; set; }

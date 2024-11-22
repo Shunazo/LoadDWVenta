@@ -3,9 +3,10 @@ using LoadDWVenta.Data.Entities.Northwind;
 
 namespace LoadDWVenta.Data.Context
 {
-    public partial class NorthwindContext : DbContext
+    public class NorthwindContext : DbContext
     {
-        public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options) { }
+        public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options) 
+        { }
 
 
         #region"Db Sets"
@@ -13,6 +14,8 @@ namespace LoadDWVenta.Data.Context
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
+      
 
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace LoadDWVenta.Data.Entities.DWHNorthwindOrders
     [Table("DimSupplier")]
     public class DimSupplier
     {
-        public int SupplierID { get; set; }
+       [Key] public int SupplierID { get; set; }
         public string? CompanyName { get; set; }
         public string?  ContactName { get; set; }
         public string? ContactTitle { get; set; }

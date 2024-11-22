@@ -14,10 +14,12 @@ internal class Program
         Host.CreateDefaultBuilder(args)
         .ConfigureServices((hostContext, services) => {
 
-            services.AddDbContextPool<NorthwindContext>(options => options.UseSqlServer(hostContext.Configuration.GetConnectionString("Northwind")));
-
+     
             services.AddDbContextPool<DWHContext>(options =>
                                                       options.UseSqlServer(hostContext.Configuration.GetConnectionString("DWH")));
+
+            services.AddDbContextPool<NorthwindContext>(options =>
+                                                      options.UseSqlServer(hostContext.Configuration.GetConnectionString("Northwind")));
 
 
             services.AddScoped<IDataServiceDWHNorth, DataServiceDWHNorth>();

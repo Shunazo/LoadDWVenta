@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace LoadDWVenta.Data.Entities.DWHNorthwindOrders
     [Table("DimProduct")]
     public class DimProduct
     {
-        public int ProductId { get; set; }
+       [Key] public int ProductId { get; set; }
 
         public string? ProductName { get; set; }
 
@@ -20,6 +21,7 @@ namespace LoadDWVenta.Data.Entities.DWHNorthwindOrders
 
         public string? QuantityPerUnit { get; set; }
 
+        [Column(TypeName = "decimal(18,4)")]
         public decimal? UnitPrice { get; set; }
 
         public short? UnitsInStock { get; set; }
