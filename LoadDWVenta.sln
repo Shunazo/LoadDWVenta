@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDWVenta.Data", "LoadDWVenta.Data\LoadDWVenta.Data.csproj", "{ABC16EC5-A5EF-4FAE-87AF-0D7F6AD90DA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadDWVenta.Data", "LoadDWVenta.Data\LoadDWVenta.Data.csproj", "{ABC16EC5-A5EF-4FAE-87AF-0D7F6AD90DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDWVenta.WorkerService", "LoadDWVenta.WorkerService\LoadDWVenta.WorkerService.csproj", "{368DC6C6-08EB-4AA3-AD4B-4EAD69A66046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadDWVenta.WorkerService", "LoadDWVenta.WorkerService\LoadDWVenta.WorkerService.csproj", "{368DC6C6-08EB-4AA3-AD4B-4EAD69A66046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

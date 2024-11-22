@@ -1,12 +1,24 @@
+using LoadDWVenta.Data.Context;
+using LoadDWVenta.Data.Interfaces;
+using LoadDWVenta.Data.Services;
+using LoadDWVenta.WorkerService;
+using Microsoft.EntityFrameworkCore;
+
 namespace LoadDWVenta.WorkerService
+    
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly IServiceScopeFactory _scopeFactory;
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, IConfiguration configuration, IServiceScopeFactory scopeFactory)
         {
             _logger = logger;
+            _configuration = configuration;
+            _scopeFactory = scopeFactory;
+
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -16,8 +28,14 @@ namespace LoadDWVenta.WorkerService
                 if (_logger.IsEnabled(LogLevel.Information))
                 {
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                    using (var scope = _scopeFactory.CreateScope())
+                    {
+                        var dataService = scope.ServiceProvider.GetRequiredService<IDataServiceDWHNorth>();
+                        var result = dataService.LoadDHW();
+                    }
                 }
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(_configuration.GetValue<int>("timerTime"), stoppingToken);
             }
         }
     }
